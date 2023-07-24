@@ -9,7 +9,7 @@ const App = () => {
    return (
       <div className='App'>
          <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-         <Cards characters={characters} />
+         <Cards characters={characters} onClose={() => window.alert('Emulamos que se cierra la card')} />
          <Card
             // key={Rick.id}
             // id={Rick.id}
@@ -19,8 +19,7 @@ const App = () => {
             // gender={Rick.gender}
             // origin={Rick.origin.name}
             // image={Rick.image}
-            onClose={() => window.alert('Emulamos que se cierra la card')}
-            characters={characters}
+            // onClose={() => window.alert('Emulamos que se cierra la card')}            
          />
       </div>
    );

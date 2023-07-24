@@ -1,24 +1,15 @@
-const Card = ({onClose, characters})=> {
+const Card = ({ name, status, species, gender, origin, onClose, image })=> {
    // console.log(props)
-   return (
-      
+   return (      
       <div>
-         {
-            characters.map((per)=> {
-               return( 
-                  <div key={per.id}>
-                  <img src={per.image} alt={per.name} />
-                  <button onClick={onClose}>X</button>           
-                  <h2>{per.name}</h2>         
-                  <h2>{per.status}</h2>
-                  <h2>{per.species}</h2>
-                  <h2>{per.gender}</h2>
-                  <h2>{per.origin.name}</h2>
-                  </div>
-               )
-            })
-         }
-      </div>
+         <h2>{name}</h2>                  
+         <img src={image} alt={name} />
+         <button onClick={onClose}>X</button>
+         <h2>{status}</h2>
+         <h2>{species}</h2>
+         <h2>{gender}</h2>
+         <h2>{origin}</h2>
+     </div>
    );
 }
 
