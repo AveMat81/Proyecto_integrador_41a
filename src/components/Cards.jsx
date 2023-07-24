@@ -1,7 +1,7 @@
 import Card from './Card';
 
 
-export default function Cards( {characters, onClose} ) {
+function const Cards = ( {characters, onClose} )=> {
    //console.log(onClose)
    return(
          <div>
@@ -21,3 +21,4 @@ export default function Cards( {characters, onClose} ) {
          </div>               
    )      
 }
+export default Cards
