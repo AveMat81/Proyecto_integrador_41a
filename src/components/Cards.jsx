@@ -1,24 +1,24 @@
 import Card from './Card';
-
-
-function const Cards = ( {characters, onClose} )=> {
-   //console.log(onClose)
+ const Cards = ({characters})=> {
    return(
-         <div>
-               {characters.map ((per) => (
-            <Card 
-               key={per.id}              
-               id={per.id}
-               name={per.name}
-               image={per.image}
-               onClose={onClose}       
-               status={per.status}
-               species={per.species}
-               gender={per.gender}
-               origin={per.origin.name}
-               
-            />))}
-         </div>               
-   )      
-}
-export default Cards
+      <div>
+        {
+         characters.map(({id,name,species,gender,image,status,onClose,origin})=>{
+            return <Card
+            key={id}
+            name={name}
+            species={species}
+            gender={gender}
+            image={image}
+            status={status}
+            origin={origin.name}
+            onClose={()=> window.alert('Emulamos que se cierre la card!')}
+            />
+         })
+        }
+
+      </div>
+   )
+};
+
+export default Cards;

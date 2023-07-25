@@ -1,18 +1,17 @@
-const Card = ({ name, status, species, gender, origin, onClose, image })=> {
-   // console.log(props)
-   return (      
+ const Card = ({id, name, status,species, gender, origin, image,onClose}) =>{
+
+
+   return (
       <div>
-         <h2>{name}</h2>                  
+         <button onClick={onClose} >X</button>
+         <h2>Name: {name}</h2>
+         <h2>Status: {status}</h2>
+         <h2>Species: {species}</h2>
+         <h2>Gender: {gender}</h2>
+         <h2>Origin: {origin}</h2>
          <img src={image} alt={name} />
-         <button onClick={onClose}>X</button>
-         <h2>{status}</h2>
-         <h2>{species}</h2>
-         <h2>{gender}</h2>
-         <h2>{origin}</h2>
-     </div>
+      </div>
    );
 }
 
-export default Card
-
-// id, name, status, species, gender, origin, onClose, image, 
+export default Card;
