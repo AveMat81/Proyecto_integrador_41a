@@ -1,10 +1,19 @@
 import SearchBar from "./SearchBar";
+import { Link } from "react-router-dom";
 
-const Nav = (props) => {
+const Nav = ({onSearch}) => {
     return(
-        <div>
-           <SearchBar onSearch={props.onSearch} /> 
-        </div>
+        <nav>
+            <SearchBar onSearch={onSearch} />
+
+            <Link to="/about">
+               <button>ABOUT</button>
+            </Link>
+
+            <Link to="home">
+            <button>HOME</button>
+            </Link>            
+        </nav>
     )
 };
 

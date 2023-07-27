@@ -1,29 +1,16 @@
 import './App.css';
-import Card from './components/Card.jsx';
 import Cards from './components/Cards.jsx';
-import Nav from "./components/Nav.jsx"
+import Nav from "./components/Nav.jsx";
+import About from "./components/About.jsx";
+import Detail from "./components/Detail.jsx";
 import { useState } from 'react';
 import axios from 'axios';
-
-
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
-   const example = {
-      id: 1,
-      name: 'Rick Sanchez',
-      status: 'Alive',
-      species: 'Human',
-      gender: 'Male',
-      origin: {
-         name: 'Earth (C-137)',
-         url: 'https://rickandmortyapi.com/api/location/1',
-      },
-      image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-   };
+  
    const [characters, setCharacters] = useState([])
-   // const onSearch = () => {
-   //    steCharacters([...characters, example])
-   // };
+  
    const onSearch = (id) => {
       axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
          if (data.name) {
@@ -35,13 +22,20 @@ const App = () => {
    }
 
    const onClose = (id) => {
-      setCharacters(characters.filter(() => {}))
+      setCharacters(characters.filter((char) => {
+         return char.id !== Number(id)
+      }))
    }
+
    return (
+      
       <div className='App'>
-         {/* <SearchBar onSearch={(characterID) => window.alert(characterID)} /> */}
          <Nav onSearch={onSearch}/>
-         <Cards characters={characters} />         
+      <Routes>        
+         <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
+         <Route path="/about" element={<About />} />
+         <Route path="/detail/:id" element={<Detail />} />         
+      </Routes>         
       </div>
    );
 }
